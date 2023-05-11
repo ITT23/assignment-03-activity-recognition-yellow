@@ -1,8 +1,6 @@
 # this program gathers sensor data
 
 # TODO: 
-# - DIPPID Daten empfangen
-# - Sinvoll als CSV abspeichern 
 # - Start - Stop zum Abspeichern
 # - pyglet Anwendung
 
@@ -43,12 +41,8 @@ sensor.register_callback('accelerometer', handle_accelerometer)
 sensor.register_callback('gyroscope', handle_gyroscope)
 
 def dataToCSV(dt):
-    
-    # if file is empty
-    try:
-        motion_df = pd.read_csv(CSV_DATA_PATH)
-    except:
-        motion_data_columns = {
+
+    motion_data_columns = {
             'timestamp':[],
             'acc_x':[],
             'acc_y':[],
@@ -58,9 +52,18 @@ def dataToCSV(dt):
             'gyro_z':[],
             'label':[]
         }
+    
+    empty_df = pd.DataFrame(motion_data_columns)
 
-        df = pd.DataFrame(motion_data_columns)
-        df.to_csv(CSV_DATA_PATH)
+    # check if csv file exists
+    if not path.exists(CSV_DATA_PATH):
+        empty_df.to_csv(CSV_DATA_PATH)
+
+    # check if file is empty
+    try:
+        motion_df = pd.read_csv(CSV_DATA_PATH)
+    except:
+        empty_df.to_csv(CSV_DATA_PATH)
 
     timestamp = datetime.now()
     
