@@ -12,6 +12,7 @@ from pyglet import app, image, clock
 from pyglet.window import Window
 from DIPPID import SensorUDP
 from os import path
+from datetime import datetime
 # own class
 from dippid_data_handler import Data_Handler
 
@@ -42,28 +43,37 @@ sensor.register_callback('accelerometer', handle_accelerometer)
 sensor.register_callback('gyroscope', handle_gyroscope)
 
 def dataToCSV(dt):
-    motion_df = pd.read_csv(CSV_DATA_PATH)
-
-    if motion_df.empty:
+    
+    # if file is empty
+    try:
+        motion_df = pd.read_csv(CSV_DATA_PATH)
+    except:
         motion_data_columns = {
+            'timestamp':[],
             'acc_x':[],
             'acc_y':[],
             'acc_z':[],
             'gyro_x':[],
             'gyro_y':[],
-            'gyro_z':[]
+            'gyro_z':[],
+            'label':[]
         }
 
         df = pd.DataFrame(motion_data_columns)
-        df.to_csv(CSV_DATA_PATH, mode='a', index=False, header=False)
+        df.to_csv(CSV_DATA_PATH)
+
+    timestamp = datetime.now()
     
+    # if file is not empty
     motion_data = {
+        'timestamp':[timestamp],
         'acc_x':[data_handler.get_accelorometer_value('x')],
         'acc_y':[data_handler.get_accelorometer_value('y')],
         'acc_z':[data_handler.get_accelorometer_value('z')],
         'gyro_x':[data_handler.get_gyroscope_value('x')],
         'gyro_y':[data_handler.get_gyroscope_value('y')],
-        'gyro_z':[data_handler.get_gyroscope_value('z')]
+        'gyro_z':[data_handler.get_gyroscope_value('z')],
+        'label':[data_handler.get_motion_label()]
     }
 
     motion_data_df = pd.DataFrame(motion_data)

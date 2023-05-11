@@ -5,6 +5,7 @@ class Data_Handler():
     def __init__(self):
         self.accelorometer_data = None
         self.gyroscope_data = None
+        self.motion_label = 'No Label'
 
     def update_accelorometer_data(self, data):
         self.accelorometer_data = data
@@ -13,11 +14,17 @@ class Data_Handler():
     def update_gyroscope_data(self, data):
         self.gyroscope_data = data
 
+    def update_motion_label(self, new_label):
+        self.motion_label = new_label
+
     def get_accelorometer_data(self):
         return self.accelorometer_data
     
     def get_gyroscope_data(self):
         return self.gyroscope_data
+    
+    def get_motion_label(self):
+        return self.motion_label
 
     '''
     Returns the last accelorometer value for the x, y or z axis
