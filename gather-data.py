@@ -11,6 +11,9 @@
 from pyglet import app, image, clock
 from pyglet.window import Window
 from DIPPID import SensorUDP
+# own class
+from dippid_data_handler import Data_Handler
+
 
 # use UPD (via WiFi) for communication
 PORT = 5700
@@ -20,15 +23,20 @@ sensor = SensorUDP(PORT)
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
 
+data_handler = Data_Handler()
+
+# saves the new accelormeter data
 def handle_accelerometer(data):
-    print(data)
+    data_handler.update_accelorometer_data(data)
 
+# saves the new gyroscope data
 def handle_gyroscope(data):
-    print(data)
+    data_handler.update_gyroscope_data(data)
 
+# update data everytime new data get received
 sensor.register_callback('accelerometer', handle_accelerometer)
 sensor.register_callback('gyroscope', handle_gyroscope)
-#sensor.register_callback('gyroscope', handle_accelerometer)
+
 
 # create game window
 #window = Window(WINDOW_WIDTH, WINDOW_HEIGHT)
