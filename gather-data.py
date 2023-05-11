@@ -1,8 +1,8 @@
 # this program gathers sensor data
 
 # TODO: 
-# - pyglet oder input Abfrage im input 
-#   -> user sollen ein label eingeben (z.B. standing) -> mithilfe von data_handler.update_motion_label(hier Input als String)
+# - pyglet oder input Abfrage im Terminal (müssen das label abfragen)
+#   -> user sollen ein label eingeben (z.B. standing) -> mithilfe von data_handler.update_motion_label(hier Input als String) wird dann das zu aufzeichnende label aktualisiert.
 #   -> Start/Stop Funktion/Button rein (Aufzeichnung automatisch beenden nach z.B. 5 oder 10 Sekunden)
 # - Nach der Aufnahme vom Sensor disconnecten (bei Aufnahme wieder connecten)
 
