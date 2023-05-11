@@ -9,7 +9,6 @@ class Data_Handler():
 
     def update_accelorometer_data(self, data):
         self.accelorometer_data = data
-        #print(data)
 
     def update_gyroscope_data(self, data):
         self.gyroscope_data = data

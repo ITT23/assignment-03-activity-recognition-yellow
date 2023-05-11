@@ -90,7 +90,7 @@ window = Window(WINDOW_WIDTH, WINDOW_HEIGHT)
 #def on_draw():
     #print('filler')
 
-clock.schedule_interval(dataToCSV, 0.2)
+clock.schedule_interval(dataToCSV, 0.1)
 
 # run game
 app.run()
