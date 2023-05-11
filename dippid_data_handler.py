@@ -13,6 +13,12 @@ class Data_Handler():
     def update_gyroscope_data(self, data):
         self.gyroscope_data = data
 
+    def get_accelorometer_data(self):
+        return self.accelorometer_data
+    
+    def get_gyroscope_data(self):
+        return self.gyroscope_data
+
     '''
     Returns the last accelorometer value for the x, y or z axis
     parameter: x, y or z

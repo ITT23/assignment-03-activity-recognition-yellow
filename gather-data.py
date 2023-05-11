@@ -7,10 +7,11 @@
 # - pyglet Anwendung
 
 # 3 Aktivitäten: Stehen, Liegen und Winken
-
+import pandas as pd
 from pyglet import app, image, clock
 from pyglet.window import Window
 from DIPPID import SensorUDP
+from os import path
 # own class
 from dippid_data_handler import Data_Handler
 
@@ -18,6 +19,9 @@ from dippid_data_handler import Data_Handler
 # use UPD (via WiFi) for communication
 PORT = 5700
 sensor = SensorUDP(PORT)
+
+# path to data csv file
+CSV_DATA_PATH = path.join(path.dirname(__file__), "data\motion-data.csv")
 
 # window size
 WINDOW_WIDTH = 800
@@ -37,8 +41,45 @@ def handle_gyroscope(data):
 sensor.register_callback('accelerometer', handle_accelerometer)
 sensor.register_callback('gyroscope', handle_gyroscope)
 
+def dataToCSV(dt):
+    motion_df = pd.read_csv(CSV_DATA_PATH)
+
+    if motion_df.empty:
+        motion_data_columns = {
+            'acc_x':[],
+            'acc_y':[],
+            'acc_z':[],
+            'gyro_x':[],
+            'gyro_y':[],
+            'gyro_z':[]
+        }
+
+        df = pd.DataFrame(motion_data_columns)
+        df.to_csv(CSV_DATA_PATH, mode='a', index=False, header=False)
+    
+    motion_data = {
+        'acc_x':[data_handler.get_accelorometer_value('x')],
+        'acc_y':[data_handler.get_accelorometer_value('y')],
+        'acc_z':[data_handler.get_accelorometer_value('z')],
+        'gyro_x':[data_handler.get_gyroscope_value('x')],
+        'gyro_y':[data_handler.get_gyroscope_value('y')],
+        'gyro_z':[data_handler.get_gyroscope_value('z')]
+    }
+
+    motion_data_df = pd.DataFrame(motion_data)
+    motion_data_df.to_csv(CSV_DATA_PATH, mode='a', index=False, header=False)
+
 
 # create game window
-#window = Window(WINDOW_WIDTH, WINDOW_HEIGHT)
+window = Window(WINDOW_WIDTH, WINDOW_HEIGHT)
+
+#@window.event
+#def on_draw():
+    #print('filler')
+
+clock.schedule_interval(dataToCSV, 0.2)
+
+# run game
+app.run()
 
 
