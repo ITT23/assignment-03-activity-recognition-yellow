@@ -1,12 +1,13 @@
 # this program gathers sensor data
 
 # TODO: 
-# - Start - Stop zum Abspeichern
-# - pyglet Anwendung
+# - pyglet oder input Abfrage im input 
+#   -> user sollen ein label eingeben (z.B. standing) -> mithilfe von data_handler.update_motion_label(hier Input als String)
+#   -> Start/Stop Funktion/Button rein (Aufzeichnung automatisch beenden nach z.B. 5 oder 10 Sekunden)
+# - Nach der Aufnahme vom Sensor disconnecten (bei Aufnahme wieder connecten)
 
-# 3 Aktivitäten: Stehen, Liegen und Winken
 import pandas as pd
-from pyglet import app, image, clock
+from pyglet import app, clock
 from pyglet.window import Window
 from DIPPID import SensorUDP
 from os import path
@@ -26,6 +27,7 @@ CSV_DATA_PATH = path.join(path.dirname(__file__), "data\motion-data.csv")
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
 
+# used to save and get data like accelorometer/gyroscope data, motion label and record status
 data_handler = Data_Handler()
 
 # saves the new accelormeter data
@@ -40,8 +42,9 @@ def handle_gyroscope(data):
 sensor.register_callback('accelerometer', handle_accelerometer)
 sensor.register_callback('gyroscope', handle_gyroscope)
 
+# saves data in the motion-data.csv
 def dataToCSV(dt):
-
+    # column names for the csv file
     motion_data_columns = {
             'timestamp':[],
             'acc_x':[],
@@ -53,21 +56,23 @@ def dataToCSV(dt):
             'label':[]
         }
     
+    # used for the creation of a new csv file or for an existing but empty csv file
     empty_df = pd.DataFrame(motion_data_columns)
 
-    # check if csv file exists
+    # check if csv file exists -> if not -> create a empty csv file
     if not path.exists(CSV_DATA_PATH):
         empty_df.to_csv(CSV_DATA_PATH)
 
-    # check if file is empty
+    # check if file is empty -> if empty -> create columns
     try:
         motion_df = pd.read_csv(CSV_DATA_PATH)
     except:
         empty_df.to_csv(CSV_DATA_PATH)
 
+    # used to save the timestamp for every recording
     timestamp = datetime.now()
     
-    # if file is not empty
+    # if file is not empty -> save timestamp, x/y/z accelorometer and gyroscope values and motion label
     motion_data = {
         'timestamp':[timestamp],
         'acc_x':[data_handler.get_accelorometer_value('x')],
@@ -90,6 +95,7 @@ window = Window(WINDOW_WIDTH, WINDOW_HEIGHT)
 #def on_draw():
     #print('filler')
 
+# write the recorded date every 0.1 second (for now it's running constantly; later it should just run if record is started)
 clock.schedule_interval(dataToCSV, 0.1)
 
 # run game

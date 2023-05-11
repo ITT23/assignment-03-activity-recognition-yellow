@@ -6,6 +6,7 @@ class Data_Handler():
         self.accelorometer_data = None
         self.gyroscope_data = None
         self.motion_label = 'No Label'
+        self.record_status = False
 
     def update_accelorometer_data(self, data):
         self.accelorometer_data = data
@@ -15,6 +16,10 @@ class Data_Handler():
 
     def update_motion_label(self, new_label):
         self.motion_label = new_label
+
+    # record_status = True or False
+    def update_record_status(self, record_status):
+        self.record_status = record_status
 
     def get_accelorometer_data(self):
         return self.accelorometer_data
