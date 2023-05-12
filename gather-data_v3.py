@@ -30,6 +30,8 @@ from activity_enum import Activity
 CSV_DATA_PATH = path.join(path.dirname(__file__), "data\\")
 # time period for the recording
 RECORD_DURATION = 3
+# time period for the values inbetween the recording
+RECORD_DURATION_VALUES = 0.1
 
 # use UPD (via WiFi) for communication
 PORT = 5700
@@ -122,7 +124,7 @@ def capture_accelerometer_data():
             data_y.append(data_handler.get_accelorometer_value('y'))
             data_z.append(data_handler.get_accelorometer_value('z'))
             data_activity.append(data_handler.get_activity())
-            sleep(0.01)
+            sleep(RECORD_DURATION_VALUES)
         
         return [data_time_log, data_x, data_y, data_z, data_activity]
  
