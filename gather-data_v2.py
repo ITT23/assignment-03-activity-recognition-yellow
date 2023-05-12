@@ -23,7 +23,7 @@ def main():
             data = capture_accelerometer_data()
             file_number = get_file_number(activity)
             # https://www.scaler.com/topics/how-to-create-a-csv-file-in-python/
-            with open(f'{activity}{file_number}.csv', 'w') as file:
+            with open(f'{activity}{file_number}.csv', 'w', newline='') as file:
                 writer = csv.writer(file)
                 writer.writerow(['x', 'y', 'z', 'timestamp', 'activity'])
                 for i in range(len(data[0])):
