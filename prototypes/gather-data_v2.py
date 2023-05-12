@@ -1,8 +1,9 @@
+import uuid
+import csv
+from os.path import isfile
 from DIPPID import SensorUDP
 from time import sleep, time
 from threading import Thread
-import csv
-from os.path import isfile
 
 ACTIVITY = {
     'none' : 0,
