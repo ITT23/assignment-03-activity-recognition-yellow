@@ -13,7 +13,9 @@
 #   - The buttons of the device should be on the bottom. 
 #
 #   SHAKING
-#   - The device is held in the hand, buttons positioned at the bottom and with the display towards the palm of the hand.
+#   - The device is held in the hand, buttons positioned at the fingertips and with the display towards the palm of the hand.
+#       -> Example: If the arm hangs down and is at pocket height, the buttons would be down. 
+#                   Hand at face level with 90 degrees in the crook of your arm would be the buttons at the top.
 # 
 #
 # RECORDED SENSOR:
