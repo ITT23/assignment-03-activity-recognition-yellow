@@ -2,7 +2,7 @@
 #   
 #   - Button 1: record jumping
 #   - Button 2: record lying
-#   - Button 3: record shaking
+#   - Button 3: record waving
 #
 #
 # POSITIONING:
@@ -12,7 +12,7 @@
 #   - The palm of the hand points towards the pocket and the display towards the palm of the hand.
 #   - The buttons of the device should be on the bottom. 
 #
-#   SHAKING
+#   WAVING
 #   - The device is held in the hand, buttons positioned at the fingertips and with the display towards the palm of the hand.
 #       -> Example: If the arm hangs down and is at pocket height, the buttons would be down. 
 #                   Hand at face level with 90 degrees in the crook of your arm would be the buttons at the top.
@@ -45,7 +45,7 @@ CSV_DATA_PATH = path.join(path.dirname(__file__), "data\\")
 # time period for the recording
 RECORD_DURATION = 3
 # time period for the values inbetween the recording
-RECORD_DURATION_VALUES = 0.1
+RECORD_DURATION_VALUES = 0.01
 
 # use UPD (via WiFi) for communication
 PORT = 5700
@@ -80,7 +80,8 @@ def handle_button_3(data):
     # saves new data
     data_handler.update_button_3_data(data)
     # set the activity label to 'shaking'
-    data_handler.update_activity_label(Activity.SHAKING.value)
+    data_handler.update_activity_label(Activity.WAVING.value)
+    print('2')
      # notify that a activity is happening
     data_handler.set_activity_status(True)
 
