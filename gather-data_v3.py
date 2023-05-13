@@ -4,10 +4,21 @@
 #   - Button 2: record lying
 #   - Button 3: record shaking
 #
+#
+# POSITIONING:
+#
+#   JUMPING and LYING
+#   - the device should be in your pocket. 
+#   - The buttons of the device should be on the bottom and the display should be on the outside (away from the body). 
+#
+#   SHAKING
+#   - the device is held in the hand, buttons positioned at the bottom and with the display towards the palm of the hand.
 # 
+#
 # RECORDED SENSOR:
 #
 #   - accelerometer
+#
 #
 # RECORDING:
 #
