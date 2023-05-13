@@ -8,23 +8,24 @@
 # POSITIONING:
 #
 #   JUMPING and LYING
-#   - the device should be in your pocket. 
-#   - The buttons of the device should be on the bottom and the display should be on the outside (away from the body). 
+#   - The device should be held at pocket level. 
+#   - The palm of the hand points towards the pocket and the display towards the palm of the hand.
+#   - The buttons of the device should be on the bottom. 
 #
 #   SHAKING
-#   - the device is held in the hand, buttons positioned at the bottom and with the display towards the palm of the hand.
+#   - The device is held in the hand, buttons positioned at the bottom and with the display towards the palm of the hand.
 # 
 #
 # RECORDED SENSOR:
 #
-#   - accelerometer
+#   - Accelerometer
 #
 #
 # RECORDING:
 #
-# - after buttonpress the recording lasts for 3 seconds
-# - recorded values: accelerometer x, y and z axis, timestamp and the activity
-# - recorded data is stored in the data folder
+# - After buttonpress the recording lasts for 3 seconds
+# - Recorded values: accelerometer x, y and z axis, timestamp and the activity
+# - Recorded data is stored in the data folder
 
 import uuid
 import pandas as pd
