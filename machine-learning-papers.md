@@ -5,8 +5,20 @@
 [1] According to Sculley et al., the most important reason for using a machine learning system is that "the desired behavior cannot be
 effectively implemented in software logic without dependency on external data".
 
+According to Kostakos & Musolesi (2017) one common use case for machine learning is activity recognition for example in wearable computing or other user interaction techniques like gesture recognition. It is also used to optimize system resources one example here is the optimization of battery conservation. Another use case is to provide intelligent mobile notifications to the users.
+
+Especially in research Kostakos & Musolesi (2017) identify machine learning is used to model human behavior. Another research topic using machine learning is the prediction of future user activities and interactions.
+
 
 ## Which problems of machine learning do the authors of the papers identify?
+
+One problem according to Kostakos & Musolesi (2017) is that the inner workings of machine learning models are not transparent. This problem is especially prevalent when generating new knowledge about the world and when using unsupervised learning. The authors argue that in these cases preliminary testing bevor adopting machine learning techniques is necessary. 
+
+Another problem the authors identify is that machine learning algorithms give insight only in association relationships and not causality, because of this one must be extremely careful when extrapolating conclusions. They argue further that this problem is even more prominent when using data collected through crowdsourcing and not collected it in an experimental setting.
+
+Another problem is the interpretation of accuracy reported for machine learning algorithms. The accuracy always should be interpreted considering the task solved. This gets obvious comparing a classifier with tow classes and a classifier with 16 different classes, because the first one has a random baseline of 50 percent and the second one has a baseline of only 6.6 percent. So, in this case 85 percent accuracy would be much better for the second algorithm. Its also should be considered that we maybe do not expect a random baseline for a task.
+
+The last problem identified by Kostakos & Musolesi (2017) is when machine learning techniques are applied to subsets of data, because this results in only capturing a limited part of the phenomena.
 
 [1] On the meta level, Sculley et al. list the technical dept as the main problem that can arise as a result of using machine learning concepts. 
 
@@ -62,7 +74,7 @@ effectively implemented in software logic without dependency on external data".
 
 ## What are the credentials of the authors with regard to machine learning? Have they published research on machine learning (or using machine-learning techniques) previously?
 
-
+Both authors have published about machine learning. Some examples for Vassilis Kostakos are [3, 4]. Mirco Musolesi also have papers about this topic published [5, 6].
 
 
 
@@ -74,3 +86,11 @@ effectively implemented in software logic without dependency on external data".
 [1] Sculley, D., Holt, G., Golovin, D., Davydov, E., Phillips, T., Ebner, D., ... & Young, M. (2014). Machine learning: The high interest credit card of technical debt.
 
 [2] Cunningham, W. (1992). The WyCash portfolio management system. ACM SIGPLAN OOPS Messenger, 4(2), 29-30.
+
+[3] Van Berkel, N., Luo, C., Anagnostopoulos, T., Ferreira, D., Goncalves, J., Hosio, S., & Kostakos, V. (2016, May). A systematic assessment of smartphone usage gaps. In Proceedings of the 2016 CHI conference on human factors in computing systems (pp. 4711-4721).
+
+[4] Sharma, K., Niforatos, E., Giannakos, M., & Kostakos, V. (2020). Assessing cognitive performance using physiological and facial features: Generalizing across contexts. Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 4(3), 1-41.
+
+[5] Mikelsons, G., Smith, M., Mehrotra, A., & Musolesi, M. (2017). Towards deep learning models for psychological state prediction using smartphone data: Challenges and opportunities. arXiv preprint arXiv:1711.06350.
+
+[6] Darvariu, V. A., Convertino, L., Mehrotra, A., & Musolesi, M. (2020). Quantifying the relationships between everyday objects and emotional states through deep learning based image analysis using smartphones. Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 4(1), 1-21.
