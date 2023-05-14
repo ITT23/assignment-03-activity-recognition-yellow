@@ -1,6 +1,5 @@
 # this program visualizes activities with pyglet
 
-
 from os import path
 import pyglet
 from DIPPID import SensorUDP
@@ -16,14 +15,14 @@ from activity_recognizer import Recognizer
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
 
-# https://www.pexels.com/de-de/foto/hochwinkelfoto-des-roboters-2599244/ @Alex Knight
-BACKGROUND_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\\background.jpg")
-# https://www.pexels.com/de-de/foto/mann-im-gestreiften-hemd-winkt-1035835/ @Nicholas Githiri 
-WAVING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\waving.jpeg")
-# https://www.pexels.com/de-de/foto/mann-von-der-strasse-springen-1631917/ @Bruno Henrique 
-JUMPING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\jumping.jpeg")
-# https://www.pexels.com/de-de/foto/frau-die-auf-weissem-stuhl-beim-lesen-des-buches-liegt-1537317/ @Adrienn 
-LYING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\lying.jpeg")
+# background image path
+BACKGROUND_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\\background.jpg") # https://www.pexels.com/de-de/foto/hochwinkelfoto-des-roboters-2599244/ @Alex Knight
+# waving image path
+WAVING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\waving.jpeg") # https://www.pexels.com/de-de/foto/mann-im-gestreiften-hemd-winkt-1035835/ @Nicholas Githiri 
+# jumping image path
+JUMPING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\jumping.jpeg") # https://www.pexels.com/de-de/foto/mann-von-der-strasse-springen-1631917/ @Bruno Henrique 
+# lying image path
+LYING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\lying.jpeg") # https://www.pexels.com/de-de/foto/frau-die-auf-weissem-stuhl-beim-lesen-des-buches-liegt-1537317/ @Adrienn 
 
 DURATION_MOTION = 3.1
 DURATION_VALUE_RECORD = 0.02
