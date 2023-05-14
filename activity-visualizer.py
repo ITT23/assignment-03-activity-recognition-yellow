@@ -94,20 +94,22 @@ def wait():
 def gather_data(dt):
     global predicted_motion
 
-    time_thread = Thread(target=wait, daemon=True)
-    time_thread.start()
-    data_x = []
-    data_y = []
-    data_z = []
+    if(sensor.has_capability('button_1')):
 
-    while(time_thread.is_alive()):
-        data_x.append(data_handler.get_accelorometer_value('x'))
-        data_y.append(data_handler.get_accelorometer_value('y'))
-        data_z.append(data_handler.get_accelorometer_value('z'))
-        sleep(DURATION_VALUE_RECORD)
-        
-    predicted_motion = recognizer.classify(data_x, data_y, data_z)
-    print(predicted_motion)
+        time_thread = Thread(target=wait, daemon=True)
+        time_thread.start()
+        data_x = []
+        data_y = []
+        data_z = []
+
+        while(time_thread.is_alive()):
+            data_x.append(data_handler.get_accelorometer_value('x'))
+            data_y.append(data_handler.get_accelorometer_value('y'))
+            data_z.append(data_handler.get_accelorometer_value('z'))
+            sleep(DURATION_VALUE_RECORD)
+            
+        predicted_motion = recognizer.classify(data_x, data_y, data_z)
+        print(predicted_motion)
 
 clock.schedule_interval(gather_data, DURATION_MOTION)
 
