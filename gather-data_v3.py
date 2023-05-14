@@ -45,7 +45,7 @@ CSV_DATA_PATH = path.join(path.dirname(__file__), "data\\")
 # time period for the recording
 RECORD_DURATION = 3
 # time period for the values inbetween the recording
-RECORD_DURATION_VALUES = 0.01
+RECORD_DURATION_VALUES = 0.02
 
 # use UPD (via WiFi) for communication
 PORT = 5700
