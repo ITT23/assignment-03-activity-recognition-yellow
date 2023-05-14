@@ -60,10 +60,8 @@ class Recognizer():
         
 
     def train_classifier(self):
-        try:
-            files = os.listdir('data')
-        except:
-            print('data folder is empty')
+        
+        files = os.listdir('data')
 
         # get jumping data
         for file in files:
@@ -80,12 +78,15 @@ class Recognizer():
             if(len(re.findall('lying', file)) != 0):
                 self.lying_data.append(pd.read_csv(f'data/{file}'))
 
-        jumping_frequencies =  get_frequencies(self.jumping_data)
-        waving_frequencies =  get_frequencies(self.waving_data)
-        lying_frequencies = get_frequencies(self.lying_data)
-        classifier =  train_model(jumping_frequencies=jumping_frequencies, shaking_frequencies=waving_frequencies, lying_frequencies=lying_frequencies)
-        self.classifier = classifier
-    
+        try:
+            jumping_frequencies =  get_frequencies(self.jumping_data)
+            waving_frequencies =  get_frequencies(self.waving_data)
+            lying_frequencies = get_frequencies(self.lying_data)
+            classifier =  train_model(jumping_frequencies=jumping_frequencies, shaking_frequencies=waving_frequencies, lying_frequencies=lying_frequencies)
+            self.classifier = classifier
+        except:
+            print('data folder is empty')
+        
     def classify(self, data_x, data_y, data_z):
         x = get_frequency(data_x)
         y = get_frequency(data_y)
