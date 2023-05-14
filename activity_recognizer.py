@@ -82,7 +82,7 @@ class Recognizer():
             jumping_frequencies =  get_frequencies(self.jumping_data)
             waving_frequencies =  get_frequencies(self.waving_data)
             lying_frequencies = get_frequencies(self.lying_data)
-            classifier =  train_model(jumping_frequencies=jumping_frequencies, shaking_frequencies=waving_frequencies, lying_frequencies=lying_frequencies)
+            classifier =  train_model(jumping_frequencies, waving_frequencies, lying_frequencies)
             self.classifier = classifier
         except:
             print('data folder is empty')
