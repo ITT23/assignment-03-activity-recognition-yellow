@@ -129,9 +129,11 @@ def capture_accelerometer_data():
         data_z = []
         data_time_log = []
         data_activity = []
+
+        sleep(1)
         
         time_thread = Thread(target=wait, daemon=True)
-        time_thread.start() #start a thread that activates and deactivates buttons
+        time_thread.start()
 
         while(time_thread.is_alive()):
             data_time_log.append(datetime.now())
