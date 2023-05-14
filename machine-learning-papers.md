@@ -68,13 +68,14 @@ The last problem identified by Kostakos & Musolesi (2017) is when machine learni
                 The development of self-contained packages can create a massive amount of supporting code which is written to get data into and out of general-purpose packages. This is called Glue Code and can be costly in the long term, as it tends to freeze a system to the peculiarities of a specific package. A special case of glue code are pipeline jungles which often appears in data preparation and can evolve organically, as new signals are identified and new information sources added. The risk with this pattern is that it can become a jungle of scrapes, joins, and sampling steps, often with intermediate files output. As a result, managing these pipelines, detecting errors and recovering from failures are all difficult and costly and testing such pipelines often requires expensive end-to-end integration tests. As an attempt at a solution to the hardening of glue code or pipeline jungles performing experiments with alternative algorithms or tweaks by implementing these experimental codepaths as conditional branches within the main production code are performed. However, over time, these accumulated codepaths can create a growing debt. Which means that maintaining backward compatibility with experimental codepaths is a burden for making more substantive changes. Furthermore, obsolete experimental codepaths can interact with each other in unpredictable ways, and tracking which combinations are incompatible quickly results in an exponential blowup in system complexity. 
 
     Dealing with changes in the external world:
-                One approach to deal with changes in the external world data is to choose a threshold from a set of possible thresholds, in order to get good tradeoffs on certain metrics, such as precision and recall. As a result such thresholds are often manually set. Thus if a model updates on new data, the old manually set threshold may be invalid. This fixed thresholds in dynamic systems create the need to manually update many thresholds across many models, which is time-consuming and brittle. Another problem is when correlations no longer correlate. This problem occures when machine learning systems have a difficulties distinguishing the impact of correlated features. 
+                One approach to deal with changes in the external world data is to choose a threshold from a set of possible thresholds, in order to get good tradeoffs on certain metrics, such as precision and recall. As a result such thresholds are often manually set. Thus if a model updates on new data, the old manually set threshold may be invalid. This fixed thresholds in dynamic systems create the need to manually update many thresholds across many models, which is time-consuming and brittle. Another problem is when correlations no longer correlate. This problem occures when machine learning systems have a difficulties distinguishing the impact of correlated features. Finally, when it comes to unit testing of individual components and end-to-end tests of running systems, such tests are not sufficient to provide evidence that a system is working as intended. As a result, making live monitoring of system behavior in real time critical.
 
 
 
 ## What are the credentials of the authors with regard to machine learning? Have they published research on machine learning (or using machine-learning techniques) previously?
 
 Both authors have published about machine learning. Some examples for Vassilis Kostakos are [3, 4]. Mirco Musolesi also have papers about this topic published [5, 6].
+Looking at Sculley D. research history it's not his first research paper on machine learning and specifically not his only paper about problems in machine learning. He contributed in severel papers to the research of challenges in machine learning and specifically about the hidden technical dept aspect of machine learning (for example [7, 8, 9, 10]). 
 
 
 
@@ -94,3 +95,11 @@ Both authors have published about machine learning. Some examples for Vassilis K
 [5] Mikelsons, G., Smith, M., Mehrotra, A., & Musolesi, M. (2017). Towards deep learning models for psychological state prediction using smartphone data: Challenges and opportunities. arXiv preprint arXiv:1711.06350.
 
 [6] Darvariu, V. A., Convertino, L., Mehrotra, A., & Musolesi, M. (2020). Quantifying the relationships between everyday objects and emotional states through deep learning based image analysis using smartphones. Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 4(1), 1-21.
+
+[7] Ovadia, Y., Fertig, E., Ren, J., Nado, Z., Sculley, D., Nowozin, S., ... & Snoek, J. (2019). Can you trust your model's uncertainty? evaluating predictive uncertainty under dataset shift. Advances in neural information processing systems, 32.
+
+[8] Sculley, D., Holt, G., Golovin, D., Davydov, E., Phillips, T., Ebner, D., ... & Dennison, D. (2015). Hidden technical debt in machine learning systems. Advances in neural information processing systems, 28.
+
+[9] D'Amour, A., Heller, K., Moldovan, D., Adlam, B., Alipanahi, B., Beutel, A., ... & Sculley, D. (2022). Underspecification presents challenges for credibility in modern machine learning. The Journal of Machine Learning Research, 23(1), 10237-10297.
+
+[10] Smilkov, D., Thorat, N., Assogba, Y., Nicholson, C., Kreeger, N., Yu, P., ... & Wattenberg, M. M. (2019). Tensorflow. js: Machine learning for the web and beyond. Proceedings of Machine Learning and Systems, 1, 309-321.
