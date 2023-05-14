@@ -60,7 +60,10 @@ class Recognizer():
         
 
     def train_classifier(self):
-        files = os.listdir('data')
+        try:
+            files = os.listdir('data')
+        except:
+            print('data folder is empty')
 
         # get jumping data
         for file in files:
