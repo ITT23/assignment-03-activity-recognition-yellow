@@ -81,7 +81,6 @@ def handle_button_3(data):
     data_handler.update_button_3_data(data)
     # set the activity label to 'shaking'
     data_handler.update_activity_label(Activity.WAVING.value)
-    print('2')
      # notify that a activity is happening
     data_handler.set_activity_status(True)
 
