@@ -24,17 +24,21 @@ JUMPING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\jumping.jpeg") 
 # lying image path
 LYING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\lying.jpeg") # https://www.pexels.com/de-de/foto/frau-die-auf-weissem-stuhl-beim-lesen-des-buches-liegt-1537317/ @Adrienn 
 
+# time period for collecting data
 DURATION_MOTION = 3.1
+# frequency of data collection
 DURATION_VALUE_RECORD = 0.02
 
 
 PORT = 5700
 sensor = SensorUDP(PORT)
 
+# handles DIPPID data 
 data_handler = Data_Handler()
+# trains model and provides classifier
 recognizer = Recognizer()
-
 recognizer.train_classifier()
+# predicted motion
 predicted_motion = ""
 
 def handle_accelerometer(data):
