@@ -2,25 +2,25 @@
 
 ## What are some common use cases for machine learning in practical applications or research prototypes?
 
-[1] According to Sculley et al., the most important reason for using a machine learning system is that "the desired behavior cannot be
+According to Sculley et al. [1], the most important reason for using a machine learning system is that "the desired behavior cannot be
 effectively implemented in software logic without dependency on external data".
 
-According to Kostakos & Musolesi (2017) one common use case for machine learning is activity recognition for example in wearable computing or other user interaction techniques like gesture recognition. It is also used to optimize system resources one example here is the optimization of battery conservation. Another use case is to provide intelligent mobile notifications to the users.
+According to Kostakos & Musolesi [11] one common use case for machine learning is activity recognition for example in wearable computing or other user interaction techniques like gesture recognition. It is also used to optimize system resources one example here is the optimization of battery conservation. Another use case is to provide intelligent mobile notifications to the users.
 
-Especially in research Kostakos & Musolesi (2017) identify machine learning is used to model human behavior. Another research topic using machine learning is the prediction of future user activities and interactions.
+Especially in research Kostakos & Musolesi [11] identify machine learning is used to model human behavior. Another research topic using machine learning is the prediction of future user activities and interactions.
 
 
 ## Which problems of machine learning do the authors of the papers identify?
 
-One problem according to Kostakos & Musolesi (2017) is that the inner workings of machine learning models are not transparent. This problem is especially prevalent when generating new knowledge about the world and when using unsupervised learning. The authors argue that in these cases preliminary testing bevor adopting machine learning techniques is necessary. 
+One problem according to Kostakos & Musolesi [11] is that the inner workings of machine learning models are not transparent. This problem is especially prevalent when generating new knowledge about the world and when using unsupervised learning. The authors argue that in these cases preliminary testing bevor adopting machine learning techniques is necessary. 
 
 Another problem the authors identify is that machine learning algorithms give insight only in association relationships and not causality, because of this one must be extremely careful when extrapolating conclusions. They argue further that this problem is even more prominent when using data collected through crowdsourcing and not collected it in an experimental setting.
 
 Another problem is the interpretation of accuracy reported for machine learning algorithms. The accuracy always should be interpreted considering the task solved. This gets obvious comparing a classifier with tow classes and a classifier with 16 different classes, because the first one has a random baseline of 50 percent and the second one has a baseline of only 6.6 percent. So, in this case 85 percent accuracy would be much better for the second algorithm. Its also should be considered that we maybe do not expect a random baseline for a task.
 
-The last problem identified by Kostakos & Musolesi (2017) is when machine learning techniques are applied to subsets of data, because this results in only capturing a limited part of the phenomena.
+The last problem identified by Kostakos & Musolesi [11] is when machine learning techniques are applied to subsets of data, because this results in only capturing a limited part of the phenomena.
 
-[1] On the meta level, Sculley et al. list the technical dept as the main problem that can arise as a result of using machine learning concepts. 
+On the meta level, Sculley et al. [1] list the technical dept as the main problem that can arise as a result of using machine learning concepts. 
 
 The Term "Technical Dept" was introduced by Ward Cunningham in 1992 [2] as a way to help quantify the cost of moving quickly to ship new
 products or services in context of software engineering. 
@@ -31,7 +31,7 @@ Technical dept can cause the following three main problems:
   - system brittleness
   - reduced rates of innovation
 
-According to Sculley et al. this main problems in context of machine learning are caused through...
+According to Sculley et al. [1] this main problems in context of machine learning are caused through...
 
  - machine learning packages have all the basic code complexity issues as normal code, but also have a larger system-level complexity that can create hidden debt. 
    Thus, refactoring these libraries, adding better unit tests, and associated activity is time well spent but does not necessarily address debt at a systems level.
@@ -41,7 +41,7 @@ According to Sculley et al. this main problems in context of machine learning ar
  - changes in the external world may make models or input signals change behavior in unintended ways.
 
     
-The causes for this problems can be divided into the following categories:
+The causes for this problems can be divided into the following categories [1]:
 
 Entanglement: 
 
@@ -82,7 +82,7 @@ One approach to deal with changes in the external world data is to choose a thre
 
 ## What are the credentials of the authors with regard to machine learning? Have they published research on machine learning (or using machine-learning techniques) previously?
 
-Both authors have published about machine learning. Some examples for Vassilis Kostakos are [3, 4]. Mirco Musolesi also have papers about this topic published [5, 6].
+Both authors of the "Avoiding pitfalls when using machine learning in HCI studies [11] have published about machine learning. Some examples for Vassilis Kostakos are [3, 4]. Mirco Musolesi also have papers about this topic published [5, 6].
 Looking at Sculley D. research history it's not his first research paper on machine learning and specifically not his only paper about problems in machine learning. He contributed in severel papers to the research of challenges in machine learning and specifically about the hidden technical dept aspect of machine learning (for example [7, 8, 9, 10]). 
 
 
@@ -111,3 +111,5 @@ Looking at Sculley D. research history it's not his first research paper on mach
 [9] D'Amour, A., Heller, K., Moldovan, D., Adlam, B., Alipanahi, B., Beutel, A., ... & Sculley, D. (2022). Underspecification presents challenges for credibility in modern machine learning. The Journal of Machine Learning Research, 23(1), 10237-10297.
 
 [10] Smilkov, D., Thorat, N., Assogba, Y., Nicholson, C., Kreeger, N., Yu, P., ... & Wattenberg, M. M. (2019). Tensorflow. js: Machine learning for the web and beyond. Proceedings of Machine Learning and Systems, 1, 309-321.
+
+[11] Kostakos, V., & Musolesi, M. (2017). Avoiding pitfalls when using machine learning in HCI studies. interactions, 24(4), 34-37.
