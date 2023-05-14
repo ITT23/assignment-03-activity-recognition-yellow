@@ -44,7 +44,7 @@ def pre_process_data(data):
 def train_model(jumping_frequencies, shaking_frequencies, lying_frequencies):
     frames = pd.concat([jumping_frequencies, shaking_frequencies, lying_frequencies], ignore_index=True)
     normalized_frames =  pre_process_data(frames)
-    classifier = svm.SVC(kernel='linear')
+    classifier = svm.SVC(kernel='rbf')
     classifier.fit(normalized_frames[['acc_x', 'acc_y', 'acc_z']], normalized_frames['class'])
     return classifier
 
