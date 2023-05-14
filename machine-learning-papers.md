@@ -2,7 +2,7 @@
 
 ## What are some common use cases for machine learning in practical applications or research prototypes?
 
-[1] According to Sculley et al., the most important reason for using a machine learning system is that "the desired behavior cannot be
+According to Sculley et al. [1], the most important reason for using a machine learning system is that "the desired behavior cannot be
 effectively implemented in software logic without dependency on external data".
 
 According to Kostakos & Musolesi (2017) one common use case for machine learning is activity recognition for example in wearable computing or other user interaction techniques like gesture recognition. It is also used to optimize system resources one example here is the optimization of battery conservation. Another use case is to provide intelligent mobile notifications to the users.
@@ -20,7 +20,7 @@ Another problem is the interpretation of accuracy reported for machine learning 
 
 The last problem identified by Kostakos & Musolesi (2017) is when machine learning techniques are applied to subsets of data, because this results in only capturing a limited part of the phenomena.
 
-[1] On the meta level, Sculley et al. list the technical dept as the main problem that can arise as a result of using machine learning concepts. 
+On the meta level, Sculley et al. [1] list the technical dept as the main problem that can arise as a result of using machine learning concepts. 
 
 The Term "Technical Dept" was introduced by Ward Cunningham in 1992 [2] as a way to help quantify the cost of moving quickly to ship new
 products or services in context of software engineering. 
@@ -31,7 +31,7 @@ Technical dept can cause the following three main problems:
   - system brittleness
   - reduced rates of innovation
 
-According to Sculley et al. this main problems in context of machine learning are caused through...
+According to Sculley et al. [1] this main problems in context of machine learning are caused through...
 
  - machine learning packages have all the basic code complexity issues as normal code, but also have a larger system-level complexity that can create hidden debt. 
    Thus, refactoring these libraries, adding better unit tests, and associated activity is time well spent but does not necessarily address debt at a systems level.
@@ -41,7 +41,7 @@ According to Sculley et al. this main problems in context of machine learning ar
  - changes in the external world may make models or input signals change behavior in unintended ways.
 
     
-The causes for this problems can be divided into the following categories:
+The causes for this problems can be divided into the following categories [1]:
 
 Entanglement: 
 
