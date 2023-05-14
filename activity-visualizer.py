@@ -29,6 +29,8 @@ DURATION_MOTION = 3
 # frequency of data collection
 DURATION_VALUE_RECORD = 0.02
 
+PREDICTION_CAPTION = "YOUR PREDICTED MOTION IS:"
+
 PORT = 5700
 sensor = SensorUDP(PORT)
 
@@ -51,15 +53,16 @@ window = Window(WINDOW_WIDTH, WINDOW_HEIGHT)
 def on_draw():
 
     window.clear()
-
+    # draw background
     draw_background_img()
+    # draw image for the corresponding motion
     draw_motion_img(predicted_motion)
+    # draw caption
     draw_prediction_caption()
 
 def draw_prediction_caption():
-    prediction_caption = "YOUR PREDICTED MOTION IS:"
 
-    prediction_caption_label = pyglet.text.Label(prediction_caption,
+    prediction_caption_label = pyglet.text.Label(PREDICTION_CAPTION,
                           font_name='Times New Roman',
                           font_size=30,
                           x = WINDOW_WIDTH / 2,
@@ -68,7 +71,7 @@ def draw_prediction_caption():
                           anchor_x='center', anchor_y='center')
 
     prediction_caption_label.draw()
-    
+
 def draw_motion_img(motion_string):
     motion_img_path = ""
 
@@ -90,6 +93,7 @@ def draw_background_img():
 def wait():
     sleep(DURATION_MOTION)
 
+# gather data for 3 seconds and then predict the motion
 def gather_data(dt):
     global predicted_motion
 
