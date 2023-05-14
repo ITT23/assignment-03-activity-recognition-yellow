@@ -25,7 +25,7 @@ def get_frequencies(df):
 def get_frequency(data):
     spectrum = np.abs(np.fft.fft(data))
     main_frequency = get_main_frequency(spectrum)
-    main_frequency = main_frequency[0][0]
+    main_frequency = main_frequency[0][-1]
     return main_frequency
 
 def get_main_frequency(spectrum):
