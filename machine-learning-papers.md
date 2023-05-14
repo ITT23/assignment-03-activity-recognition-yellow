@@ -31,20 +31,20 @@ Technical dept can cause the following three main problems:
   - system brittleness
   - reduced rates of innovation
 
-  According to Sculley et al. this main problems in context of machine learning are caused through...
+According to Sculley et al. this main problems in context of machine learning are caused through...
 
-    - machine learning packages have all the basic code complexity issues as normal code, but also have a larger system-level complexity that can create hidden debt. 
-      Thus, refactoring these libraries, adding better unit tests, and associated activity is time well spent but does not necessarily address debt at a systems level.
-    - subtly erosion of the abstraction boundaries at a system-level.
-    - creation of unintended tight coupling of otherwise disjoint systems through re-use of input signals.
-    - large masses of “glue code” or calibration layers that can lock in assumptions because machine learning treated as black boxes
-    - changes in the external world may make models or input signals change behavior in unintended ways.
+ - machine learning packages have all the basic code complexity issues as normal code, but also have a larger system-level complexity that can create hidden debt. 
+   Thus, refactoring these libraries, adding better unit tests, and associated activity is time well spent but does not necessarily address debt at a systems level.
+ - subtly erosion of the abstraction boundaries at a system-level.
+ - creation of unintended tight coupling of otherwise disjoint systems through re-use of input signals.
+ - large masses of “glue code” or calibration layers that can lock in assumptions because machine learning treated as black boxes
+ - changes in the external world may make models or input signals change behavior in unintended ways.
 
     
-  The causes for this problems can be divided into the following categories:
+The causes for this problems can be divided into the following categories:
 
-  Entanglement: 
-    Machine learning models are machines for creating entanglement and making the isolation of improvements effectively impossible. This leads to changing anything leading to changing everything (CACE principle). As a result of such changes the prediction behavior may alter, either subtly or dramatically, on various slices of the distribution. To take entanglement some strategies may help but its also means that shipping the first version of a machine learning system is easier, but in reverse subsequent improvements are unexpectedly difficult.
+Entanglement: 
+  Machine learning models are machines for creating entanglement and making the isolation of improvements effectively impossible. This leads to changing anything leading to changing everything (CACE principle). As a result of such changes the prediction behavior may alter, either subtly or dramatically, on various slices of the distribution. To take entanglement some strategies may help but its also means that shipping the first version of a machine learning system is easier, but in reverse subsequent improvements are unexpectedly difficult.
 
     Hidden Feedback Loops: 
                 Machine learning models as systems that learn from world behavior are clearly intended to be part of a feedback loop. Hidden feedback loops arises through ongoing feature adjustments and new data updates on the machine learning model. This causes the system just slowly changing it prediction behavior. Gradual changes not visible in quick experiments make analyzing the effect of proposed changes extremely difficult, and add cost to even simple improvements.
