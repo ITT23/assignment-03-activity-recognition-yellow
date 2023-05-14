@@ -25,7 +25,7 @@ JUMPING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\jumping.jpeg") 
 LYING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\lying.jpeg") # https://www.pexels.com/de-de/foto/frau-die-auf-weissem-stuhl-beim-lesen-des-buches-liegt-1537317/ @Adrienn 
 
 # time period for collecting data
-DURATION_MOTION = 3.1
+DURATION_MOTION = 3
 # frequency of data collection
 DURATION_VALUE_RECORD = 0.02
 
