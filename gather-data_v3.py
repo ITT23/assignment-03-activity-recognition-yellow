@@ -7,15 +7,18 @@
 #
 # POSITIONING:
 #
-#   JUMPING and LYING
-#   - The device should be held at pocket level. 
-#   - The palm of the hand points towards the pocket and the display towards the palm of the hand.
-#   - The buttons of the device should be on the bottom. 
+#   JUMPING
+#   - The device should be held at the hight of your chest. 
+#   - The palm of the hand points towards your body and the display towards your body too.
+#   
+#
+#
+#   LYING
+#   - The device can be positioned anywhere on your body while lying down
+#
 #
 #   WAVING
-#   - The device is held in the hand, buttons positioned at the fingertips and with the display towards the palm of the hand.
-#       -> Example: If the arm hangs down and is at pocket height, the buttons would be down. 
-#                   Hand at face level with 90 degrees in the crook of your arm would be the buttons at the top.
+#   - The device is held in the hand, with the display away form the palm of the hand.
 # 
 #
 # RECORDED SENSOR:
@@ -25,7 +28,7 @@
 #
 # RECORDING:
 #
-# - After buttonpress the recording lasts for 3 seconds
+# - After buttonpress the recording lasts for 4 seconds
 # - Recorded values: accelerometer x, y and z axis, timestamp and the activity
 # - Recorded data is stored in the data folder
 
