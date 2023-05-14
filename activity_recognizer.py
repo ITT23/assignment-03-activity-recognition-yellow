@@ -2,7 +2,6 @@ import os
 import pandas as pd
 import re
 import numpy as np
-# install scikit-learn
 from sklearn import svm
 from sklearn.preprocessing import scale, StandardScaler, MinMaxScaler
 
