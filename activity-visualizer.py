@@ -110,9 +110,7 @@ def gather_data(dt):
             data_y.append(data_handler.get_accelorometer_value('y'))
             data_z.append(data_handler.get_accelorometer_value('z'))
             sleep(DURATION_VALUE_RECORD)
-            
         predicted_motion = recognizer.classify(data_x, data_y, data_z)
-        print(predicted_motion)
 
 clock.schedule_interval(gather_data, DURATION_MOTION)
 
