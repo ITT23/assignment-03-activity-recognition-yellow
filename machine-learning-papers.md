@@ -44,6 +44,7 @@ According to Sculley et al. this main problems in context of machine learning ar
 The causes for this problems can be divided into the following categories:
 
 Entanglement: 
+
 Machine learning models are machines for creating entanglement and making the isolation of improvements effectively impossible. This leads to changing anything leading to changing everything (CACE principle). As a result of such changes the prediction behavior may alter, either subtly or dramatically, on various slices of the distribution. To take entanglement some strategies may help but its also means that shipping the first version of a machine learning system is easier, but in reverse subsequent improvements are unexpectedly difficult.
 
 Hidden Feedback Loops: 
