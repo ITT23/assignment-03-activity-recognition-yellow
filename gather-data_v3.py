@@ -1,4 +1,4 @@
-# INSTRUCTION (for M5STACK or the DIPPID App):
+# INSTRUCTION (DIPPID App):
 #   
 #   - Button 1: record jumping
 #   - Button 2: record lying
