@@ -29,7 +29,6 @@ DURATION_MOTION = 3
 # frequency of data collection
 DURATION_VALUE_RECORD = 0.02
 
-
 PORT = 5700
 sensor = SensorUDP(PORT)
 

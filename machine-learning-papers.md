@@ -22,14 +22,14 @@ The last problem identified by Kostakos & Musolesi (2017) is when machine learni
 
 [1] On the meta level, Sculley et al. list the technical dept as the main problem that can arise as a result of using machine learning concepts. 
 
-    The Term "Technical Dept" was introduced by Ward Cunningham in 1992 [2] as a way to help quantify the cost of moving quickly to ship new
-    products or services in context of software engineering. 
+The Term "Technical Dept" was introduced by Ward Cunningham in 1992 [2] as a way to help quantify the cost of moving quickly to ship new
+products or services in context of software engineering. 
     
-    Technical dept can cause the following three main problems:
+Technical dept can cause the following three main problems:
 
-        - massive ongoing maintenance costs at the system level
-        - system brittleness
-        - reduced rates of innovation
+  - massive ongoing maintenance costs at the system level
+  - system brittleness
+  - reduced rates of innovation
 
    According to Sculley et al. this main problems in context of machine learning are caused through...
 
