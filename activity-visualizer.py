@@ -1,24 +1,15 @@
 # this program visualizes activities with pyglet
 
-#import activity-recognizer as activity
-#import pyglet
-# this program recognizes activities
 
-import pandas as pd
-import numpy as np
 from os import path
-import re
-# install scikit-learn
-from sklearn import svm
 import pyglet
 from DIPPID import SensorUDP
 from threading import Thread
 from time import sleep
 from dippid_data_handler import Data_Handler
-from sklearn.preprocessing import scale, StandardScaler, MinMaxScaler
 from pyglet.window import Window
 from pyglet import app, image, clock
-
+# own class
 from activity_recognizer import Recognizer
 
 # game window
@@ -33,6 +24,10 @@ WAVING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\waving.jpeg")
 JUMPING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\jumping.jpeg")
 # https://www.pexels.com/de-de/foto/frau-die-auf-weissem-stuhl-beim-lesen-des-buches-liegt-1537317/ @Adrienn 
 LYING_IMAGE_PATH = path.join(path.dirname(__file__), "pictures\lying.jpeg")
+
+DURATION_MOTION = 3.1
+DURATION_VALUE_RECORD = 0.02
+
 
 PORT = 5700
 sensor = SensorUDP(PORT)
@@ -56,19 +51,12 @@ def on_draw():
     window.clear()
 
     draw_background_img()
-    
     draw_motion_img(predicted_motion)
+    draw_prediction_caption()
 
-    draw_prediction_text(predicted_motion)
-
-def draw_prediction_text(motion_string):
+def draw_prediction_caption():
     prediction_caption = "YOUR PREDICTED MOTION IS:"
-    if motion_string != "":
-        prediction_text = "You are " + motion_string
-    else:
-        prediction_text = ""
 
-    # title 
     prediction_caption_label = pyglet.text.Label(prediction_caption,
                           font_name='Times New Roman',
                           font_size=30,
@@ -76,19 +64,9 @@ def draw_prediction_text(motion_string):
                           y = WINDOW_HEIGHT * 0.9,
                           color=(0,255,255,255),
                           anchor_x='center', anchor_y='center')
-    
-    # text
-    prediction_text_label = pyglet.text.Label(prediction_text,
-                          font_name='Times New Roman',
-                          font_size=25,
-                          x = WINDOW_WIDTH / 2,
-                          y = WINDOW_HEIGHT * 0.4,
-                          color=(0,0,0,255),
-                          anchor_x='center', anchor_y='center')
-    
-    prediction_caption_label.draw()
-    prediction_text_label.draw()
 
+    prediction_caption_label.draw()
+    
 def draw_motion_img(motion_string):
     motion_img_path = ""
 
@@ -101,14 +79,14 @@ def draw_motion_img(motion_string):
 
     if motion_string != "":
         motion_image = image.load(motion_img_path)
-        motion_image.blit(WINDOW_WIDTH / 2 - 150, WINDOW_HEIGHT * 0.1)
+        motion_image.blit(WINDOW_WIDTH / 2 - 200, WINDOW_HEIGHT * 0.1)
 
 def draw_background_img():
     motion_image = image.load(BACKGROUND_IMAGE_PATH)
     motion_image.blit(0, 0)
 
 def wait():
-    sleep(3)
+    sleep(DURATION_MOTION)
 
 def gather_data(dt):
     global predicted_motion
@@ -123,19 +101,13 @@ def gather_data(dt):
         data_x.append(data_handler.get_accelorometer_value('x'))
         data_y.append(data_handler.get_accelorometer_value('y'))
         data_z.append(data_handler.get_accelorometer_value('z'))
-        sleep(0.02)
+        sleep(DURATION_VALUE_RECORD)
         
     predicted_motion = recognizer.classify(data_x, data_y, data_z)
     print(predicted_motion)
 
-
-
-
-# latency of input sound
-clock.schedule_interval(gather_data, 3)
+clock.schedule_interval(gather_data, DURATION_MOTION)
 
 # run game
 app.run()
 
-
-#main()
